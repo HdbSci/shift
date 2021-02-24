@@ -13,7 +13,7 @@ class Sfdb
 
 
     def initialize(@dbid : Int32)
-        @data = Hash(String, Sfvar)
+        @data = Hash(String, Sfvar).new
     end
 
 
@@ -27,7 +27,8 @@ class Sfdb
             key = tk[1]
             val = tk[2]
 
-            @data[key] = Sfvar.new key val
+            @data[key] = Sfvar.new val
+            @data[key].set_name key
 
         when "READ"
             key = tk[1]

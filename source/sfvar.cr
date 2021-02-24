@@ -9,9 +9,14 @@ class Sfvar
 	@value : String
 
 
-	def initialize(@name : String, @value : String)
+	def initialize(@value : String)
+		@name = ""
 	end
 
+
+	def set_name(name : String)
+		@name = name
+	end
 
 	def name : String
 		@name
