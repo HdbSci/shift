@@ -25,7 +25,7 @@ OptionParser.parse do |parser|
         loop do
             print "shift@#{shift_version}> "
             cmd = gets.not_nil!
-            database.eval cmd
+            puts (database.eval cmd)
         end
     end
 
@@ -41,7 +41,7 @@ OptionParser.parse do |parser|
                 spawn do
                     loop do
                         if request = socket.gets
-                            database.eval request
+                            socket.puts (database.eval request)
                         end
                     end
                 end

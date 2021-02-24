@@ -29,16 +29,17 @@ class Sfdb
 
             @data[key] = Sfvar.new val
             @data[key].set_name key
+            return nil
 
         when "READ"
             key = tk[1]
-            puts @data[key].val
+            return @data[key].val
 
         when "EXIT"
             exit
 
         else
-            puts "SyntaxError: #{command} is not a valid command"
+            return "SyntaxError: #{command} is not a valid command"
         end
     end
 end
