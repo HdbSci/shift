@@ -4,7 +4,7 @@
 # class
 #===================#
 
-class sfvar_int
+class sfvar
 	@name  : String
 	@value : String
 
