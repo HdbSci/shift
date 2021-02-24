@@ -7,20 +7,18 @@
 require "./sfvar"
 
 
-class sfdb
+class Sfdb
     @dbid : Int32
-    @data
+    @data : Hash(String, Sfvar)
 
 
-    def initialize(@dbid: Int32)
-        @data = Hash(String, sfvar)
+    def initialize(@dbid : Int32)
+        @data = Hash(String, Sfvar)
     end
 
 
     def eval(code : String)
-        tk = code.split(" ").map {
-            |item| item.strip
-        }
+        tk = code.split(" ").map {|item| item.strip}
 
         command = tk[0]
     
@@ -29,7 +27,7 @@ class sfdb
             key = tk[1]
             val = tk[2]
 
-            @data[key] = sfvar.new key val
+            @data[key] = Sfvar.new key val
 
         when "READ"
             key = tk[1]
