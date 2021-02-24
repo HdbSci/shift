@@ -34,6 +34,9 @@ class Sfdb
             key = tk[1]
             puts @data[key].val
 
+        when "EXIT"
+            exit
+
         else
             puts "SyntaxError: #{command} is not a valid command"
         end
